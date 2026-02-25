@@ -58,3 +58,26 @@ window.addEventListener('scroll', () => {
         header.style.background = 'rgba(10, 10, 10, 0.8)';
     }
 });
+
+// ===== EFEITO DIGITANDO HERO =====
+const textoHero = "R$399,00";
+const elementoHero = document.getElementById("digitando");
+const cursorHero = document.querySelector(".cursor");
+
+if (elementoHero) {
+    let i = 0;
+
+    function digitarHero() {
+        if (i < textoHero.length) {
+            elementoHero.innerHTML += textoHero.charAt(i);
+            i++;
+            setTimeout(digitarHero, 80);
+        } else {
+            setTimeout(() => {
+                cursorHero.style.display = "none";
+            }, 500);
+        }
+    }
+
+    digitarHero();
+}

@@ -18,30 +18,22 @@ body {
     line-height: 1.6;
 }
 
-/* =========================
-   CORES
-========================= */
 :root {
-    --green: #00ff88;
-    --green-dark: #00cc6a;
-    --yellow: #ffd600;
+    --green: #4884e4;       /* azul principal */
+    --green-dark: #2563eb;  /* azul hover */
+    --yellow: #1eff00;
     --black: #0f0f0f;
     --gray: #1a1a1a;
     --light-gray: #888;
 }
 
-/* =========================
-   CONTAINER
-========================= */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
 }
 
-/* =========================
-   HEADER
-========================= */
+
 header {
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
@@ -49,7 +41,7 @@ header {
     width: 100%;
     z-index: 999;
     padding: 20px 0;
-}
+    }
 
 .logo {
     font-size: 24px;
@@ -86,6 +78,56 @@ nav {
     color: var(--green);
 }
 
+
+
+
+/* =========================
+   o que vc realmente recebe
+========================= */
+
+.benefits {
+    padding: 80px 0;
+    background: #111;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.benefit-card {
+    background: var(--gray);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.benefit-card:hover {
+    border-color: var(--green);
+    transform: translateY(-4px);
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.benefit-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--yellow);
+}
+
+.benefit-card p {
+    color: var(--light-gray);
+    font-size: 14px;
+}
+
 /* =========================
    HERO
 ========================= */
@@ -106,7 +148,18 @@ nav {
 
 .gradient-text {
     background: linear-gradient(90deg, var(--green), var(--yellow));
+    background-clip: text;           
+    -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent;
+}
+
+.cursor {
+    animation: piscar 0.8s infinite;
+}
+
+@keyframes piscar {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .hero-subtitle {
@@ -141,7 +194,8 @@ nav {
 }
 
 .btn-outline:hover {
-    background: var(--green);
+    background: var(--green-dark);
+    transform: translateY(-3px);
     color: black;
 }
 
@@ -217,6 +271,56 @@ section {
 /* =========================
    SERVICES
 ========================= */
+.services {
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Esconde a parte da linha que sai do container */
+}
+
+.section-title {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Linha zigue-zague animada */
+.divider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    height: 60px;
+    margin-top: 10px;
+}
+
+.divider-svg {
+    width: 200%;
+    height: 60px;
+    animation: waveMove 5s linear infinite;
+}
+
+.divider-svg path {
+    fill: none;
+    stroke: #b4ec51; /* verde estilo da imagem */
+    stroke-width: 20;
+    stroke-linecap: round;
+}
+
+@keyframes waveMove {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -244,7 +348,6 @@ section {
 .service-card p {
     color: var(--light-gray);
 }
-
 /* =========================
    WORK
 ========================= */
