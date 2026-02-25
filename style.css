@@ -321,6 +321,19 @@ section {
     }
 }
 
+.bottom-divider .divider-svg {
+    animation: waveMoveReverse 5s linear infinite;
+}
+
+@keyframes waveMoveReverse {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
