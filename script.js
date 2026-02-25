@@ -2,14 +2,16 @@
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 
-menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    // Animação básica nos traços do botão
-    const spans = menuToggle.querySelectorAll('span');
-    spans[0].style.transform = mobileMenu.classList.contains('active') ? 'rotate(45deg) translate(5px, 5px)' : 'none';
-    spans[1].style.opacity = mobileMenu.classList.contains('active') ? '0' : '1';
-    spans[2].style.transform = mobileMenu.classList.contains('active') ? 'rotate(-45deg) translate(7px, -6px)' : 'none';
-});
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+
+        const spans = menuToggle.querySelectorAll('span');
+        spans[0].style.transform = mobileMenu.classList.contains('active') ? 'rotate(45deg) translate(5px, 5px)' : 'none';
+        spans[1].style.opacity = mobileMenu.classList.contains('active') ? '0' : '1';
+        spans[2].style.transform = mobileMenu.classList.contains('active') ? 'rotate(-45deg) translate(7px, -6px)' : 'none';
+    });
+}
 
 // Animação de Números (Stats)
 const stats = document.querySelectorAll('.stat-number');
@@ -60,24 +62,22 @@ window.addEventListener('scroll', () => {
 });
 
 // ===== EFEITO DIGITANDO HERO =====
-const textoHero = "R$399,00";
-const elementoHero = document.getElementById("digitando");
-const cursorHero = document.querySelector(".cursor");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (elementoHero) {
+    const texto = "R$399,00";
+    const elemento = document.getElementById("digitando");
+
+    if (!elemento) return;
+
     let i = 0;
 
-    function digitarHero() {
-        if (i < textoHero.length) {
-            elementoHero.innerHTML += textoHero.charAt(i);
+    function digitar() {
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
             i++;
-            setTimeout(digitarHero, 80);
-        } else {
-            setTimeout(() => {
-                cursorHero.style.display = "none";
-            }, 500);
+            setTimeout(digitar, 80);
         }
     }
 
-    digitarHero();
-}
+    digitar();
+});

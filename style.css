@@ -19,9 +19,9 @@ body {
 }
 
 :root {
-    --green: #4884e4;       /* azul principal */
-    --green-dark: #2563eb;  /* azul hover */
-    --yellow: #1eff00;
+    --green: #a13de4;       /* azul principal */
+    --green-dark: #9e30b4;  /* azul hover */
+    --yellow: #46f37a;
     --black: #0f0f0f;
     --gray: #1a1a1a;
     --light-gray: #888;
@@ -129,15 +129,17 @@ nav {
 }
 
 /* =========================
-   HERO
+   main
 ========================= */
+        
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(180deg, #0f0f0f 70%, #111);
+    background: linear-gradient(180deg, #ffffff);
     position: relative;
     overflow: hidden;
+    color: black;
 }
 
 .hero-title {
@@ -177,6 +179,11 @@ nav {
     display: inline-block;
 }
 
+.reveal-text {
+    position: relative;
+    top: -5px;
+}
+
 .btn-primary {
     background: var(--green);
     color: black;
@@ -196,7 +203,7 @@ nav {
 .btn-outline:hover {
     background: var(--green-dark);
     transform: translateY(-3px);
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 /* =========================
@@ -272,8 +279,8 @@ section {
    SERVICES
 ========================= */
 .services {
-    background-color: #ffffff;
-    color: black;
+    background-color: #9d55f0;
+    color: white;
     text-align: center;
 }
 
@@ -307,7 +314,7 @@ section {
 
 .divider-svg path {
     fill: none;
-    stroke: #b4ec51; /* verde estilo da imagem */
+    stroke: #30df73; /* verde estilo da imagem */
     stroke-width: 20;
     stroke-linecap: round;
 }
