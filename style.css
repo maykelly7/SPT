@@ -144,9 +144,7 @@ nav {
     z-index: 2;
 }
 
-
-
-        
+   
 .hero {
     height: 100vh;
     display: flex;
@@ -294,7 +292,7 @@ section {
    SERVICES
 ========================= */
 .services {
-    background-color: #9d55f0;
+    background-color: #a265e9;
     color: white;
     text-align: center;
 }
@@ -329,8 +327,8 @@ section {
 
 .divider-svg path {
     fill: none;
-    stroke: #30df73; /* verde estilo da imagem */
-    stroke-width: 20;
+    stroke: #ffffff52; /* verde estilo da imagem */
+    stroke-width: 5;
     stroke-linecap: round;
 }
 
@@ -363,7 +361,7 @@ section {
 }
 
 .service-card {
-    background: var(--gray);
+    background-color: white;
     padding: 30px;
     border-radius: 12px;
     transition: 0.3s;
@@ -381,7 +379,7 @@ section {
 }
 
 .service-card p {
-    color: var(--light-gray);
+    color:black;
 }
 /* =========================
    WORK
