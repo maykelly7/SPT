@@ -146,3 +146,31 @@ window.addEventListener("resize", () => {
 
 init();
 animate();
+
+const container = document.querySelector('.bubbles-container');
+
+function createBubble() {
+    const bubble = document.createElement('span');
+    bubble.classList.add('bubble');
+
+    // tamanho aleatório entre 10px e 30px
+    const size = Math.random() * 5 + 10;
+    bubble.style.width = size + 'px';
+    bubble.style.height = size + 'px';
+
+    // posição horizontal aleatória
+    bubble.style.left = Math.random() * 100 + '%';
+
+    // duração aleatória da animação (4s a 12s)
+    const duration = Math.random() * 8 + 4;
+    bubble.style.animationDuration = duration + 's';
+
+    // adiciona à seção
+    container.appendChild(bubble);
+
+    // remove bolinha depois da animação
+    bubble.addEventListener('animationend', () => bubble.remove());
+}
+
+// cria bolinhas a cada 300ms
+setInterval(createBubble, 300);

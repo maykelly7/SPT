@@ -27,11 +27,7 @@ body {
     --light-gray: #888;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
+
 
 
 header {
@@ -85,6 +81,10 @@ nav {
    o que vc realmente recebe
 ========================= */
 
+.benefits-section{
+    background-color: rgb(247, 247, 247);
+}
+
 .benefits {
     padding: 80px 0;
     background: #111;
@@ -95,12 +95,17 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    color: #a13de4;
+}
+
+.benefits-grid .card-icon img {
+    width: 50px;
 }
 
 .benefit-card {
-    background: var(--gray);
+    background-color: white;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 10px 110px 110px 10px; 
     text-align: center;
     transition: 0.3s;
     border: 1px solid transparent;
@@ -120,13 +125,47 @@ nav {
 .benefit-card h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: var(--yellow);
+    color: #6b229c  ;
 }
 
 .benefit-card p {
-    color: var(--light-gray);
+    color: black;
     font-size: 14px;
 }
+
+.benefits-section {
+    background-color: rgb(247, 247, 247);
+    position: relative; /* necessário para posicionamento absoluto das bolinhas */
+    overflow: hidden;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    color: #a13de4;
+    position: relative;
+    z-index: 1; /* garante que os cards fiquem na frente das bolinhas */
+}
+
+.bubble {
+    position: absolute;
+    bottom: -50px; 
+    border-radius: 50%;
+    background: #a13de4; /* roxo combinando com o tema */
+    opacity: 0.4;
+    pointer-events: none;
+    animation: rise linear forwards;
+    z-index: 0; /* atrás dos cards */
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+    }
+}   
 
 /* =========================
    main
@@ -292,7 +331,7 @@ section {
    SERVICES
 ========================= */
 .services {
-    background-color: #a265e9;
+    background-color: #000000;
     color: white;
     text-align: center;
 }
@@ -327,7 +366,7 @@ section {
 
 .divider-svg path {
     fill: none;
-    stroke: #ffffff52; /* verde estilo da imagem */
+    stroke: #8800a352; /* verde estilo da imagem */
     stroke-width: 5;
     stroke-linecap: round;
 }
@@ -361,26 +400,51 @@ section {
 }
 
 .service-card {
-    background-color: white;
+    background-color: #000000; /* fundo escuro */
     padding: 30px;
     border-radius: 12px;
+    position: relative;
     transition: 0.3s;
-    border: 1px solid transparent;
+    overflow: hidden;
+}
+
+/* Borda degradê (opcional, destaque leve) */
+.service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 2px;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .service-card:hover {
-    border: 1px solid var(--green);
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(144, 1, 180, 0.4);
 }
 
+
+
+/* Título do card */
 .service-card h3 {
     margin: 15px 0;
-    color: var(--green);
+    color: #a020f0; /* título roxo */
+    font-size: 20px;
 }
 
+/* Texto do card */
 .service-card p {
-    color:black;
+    color: rgba(255, 255, 255, 0.815);
+    font-size: 15px;
+    line-height: 1.5;
 }
+
+
+
+
 /* =========================
    WORK
 ========================= */
