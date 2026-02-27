@@ -563,26 +563,22 @@
 }
 
 .cases-header {
-    margin-bottom: 80px;
-    text-align: left;
+    margin-bottom: 50px;
+    text-align: center; /* centraliza texto */
+    max-width: 900px;   /* limita largura para não ficar muito espalhado */
+    margin-left: auto;
+    margin-right: auto;
 }
-
 .cases-header .section-tag {
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 16px;
+    color: #b1b1b1;
+   
 }
 
 .cases-header .section-title {
-    color: #fff;
-    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsivo */
+    color: #6a2170; /* se fundo for claro */
+    font-size: 30px;
     font-weight: 700;
     line-height: 1.1;
-    margin: 0;
 }
 
 /* Grid de Cases */
