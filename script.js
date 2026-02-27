@@ -224,3 +224,32 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCount();
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.case-card');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Ativa quando 15% do card aparece na tela
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Delay em cascata - cada card aparece um pouco depois
+                // O index * 200ms cria o efeito de "queda" sequencial
+                setTimeout(() => {
+                    entry.target.classList.add('animate');
+                }, index * 200);
+                
+                // Para de observar para não repetir a animação
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    cards.forEach(card => {
+        observer.observe(card);
+    });
+});

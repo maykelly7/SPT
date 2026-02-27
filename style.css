@@ -318,7 +318,7 @@
     STATS
     ========================= */
     .stats {
-        background: #111;
+        background: #000000;
         /* fundo escuro combinando com a seção */
         padding: 80px 20px;
         text-align: center;
@@ -331,15 +331,6 @@
         gap: 40px;
         justify-items: center;
     }
-
-    .stat-item {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
-
-    }
-
-
-
 
     .stat-number {
         font-size: 52px;
@@ -555,54 +546,159 @@
     /* =========================
     WORK
     ========================= */
-    .work-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
 
-    .work-card {
-        background: var(--gray);
-        border-radius: 12px;
-        overflow: hidden;
-        transition: 0.3s;
-    }
+/* Seção de Cases - Estilo Sudo */
+.cases-section {
+    background-color: #050505;
+    padding: 120px 24px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
-    .work-card:hover {
-        transform: scale(1.03);
-    }
+.cases-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
-    .work-info {
-        padding: 20px;
-    }
+.cases-header {
+    margin-bottom: 80px;
+    text-align: left;
+}
 
-    .work-category {
-        color: var(--yellow);
-        font-size: 14px;
-    }
+.cases-header .section-tag {
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 16px;
+}
 
-    /* =========================
-    TEAM
-    ========================= */
-    .team-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 30px;
-    }
+.cases-header .section-title {
+    color: #fff;
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsivo */
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+}
 
-    .team-card {
-        background: var(--gray);
-        padding: 30px;
-        border-radius: 12px;
-        text-align: center;
-        transition: 0.3s;
-    }
+/* Grid de Cases */
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
 
-    .team-card:hover {
-        transform: translateY(-5px);
-        border: 1px solid var(--green);
-    }
+/* Card */
+.case-card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #111;
+    
+    /* Estado inicial da animação */
+    opacity: 0;
+    transform: translateY(60px); /* Começa 60px mais abaixo */
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
+/* Classe ativada pelo JS */
+.case-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Imagem */
+.case-image {
+    width: 100%;
+    height: 500px; /* Altura grande para tela cheia */
+    position: relative;
+    overflow: hidden;
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover - Zoom na imagem */
+.case-card:hover .case-image img {
+    transform: scale(1.05);
+}
+
+/* Overlay escuro */
+.case-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+}
+
+.case-card:hover .case-overlay {
+    opacity: 1;
+}
+
+/* Texto */
+.case-info {
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.case-card:hover .case-info {
+    transform: translateY(0);
+}
+
+.case-category {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.1);
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.case-info h3 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Responsivo - Mobile */
+@media (max-width: 768px) {
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .case-image {
+        height: 400px;
+    }
+    
+    .case-info h3 {
+        font-size: 1.5rem;
+    }
+}   
     /* =========================
     CONTACT
     ========================= */
