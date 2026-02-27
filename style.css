@@ -73,7 +73,7 @@
 
     .nav-links a:hover,
     .nav-links a.active {
-        color: var(--green);
+        color: rgb(255, 20, 255);
     }
 
 
@@ -334,32 +334,24 @@
 
     .stat-item {
         background: rgba(255, 255, 255, 0.05);
-        /* leve destaque atrás do card */
-        padding: 25px 20px;
         border-radius: 20px;
-        transition: transform 0.3s, box-shadow 0.3s;
-        cursor: default;
+
     }
 
-    .stat-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(144, 1, 180, 0.4);
-        /* sombra roxa leve */
-    }
+
+
 
     .stat-number {
-        font-size: 48px;
-        font-weight: 800;
-        color: var(--green);
-        display: block;
-        margin-bottom: 10px;
+        font-size: 52px;
+        font-weight: 900;
+        color: #6b3597;
+        /* roxo combinando com seu botão */
     }
 
     .stat-label {
-        color: var(--light-gray);
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        font-size: 14px;
+        opacity: 0.7;
+        letter-spacing: 2px;
     }
 
     /* animação opcional de contagem */
@@ -520,8 +512,16 @@
     }
 
     .button-whatsapp {
-        display: inline-block;
-        width: 19%;
+        display: flex;
+        /* usa flexbox */
+        align-items: center;
+        /* alinha verticalmente */
+        justify-content: center;
+        /* centraliza horizontalmente */
+        gap: 8px;
+        /* espaço entre texto e seta */
+
+        width: 20%;
         height: 58px;
         padding: 15px 25px;
         border: 2px solid black;
@@ -534,13 +534,16 @@
         transition: all 0.3s ease;
         cursor: pointer;
 
-        /* CENTRALIZAÇÃO */
         margin: 40px auto 0 auto;
-        /* margem superior de 40px, centraliza horizontalmente */
-        display: block;
-        /* necessário para que margin:auto funcione */
-        text-align: center;
     }
+
+    .button-whatsapp img {
+        width: 14px;
+        /* tamanho pequeno */
+        height: auto;
+    }
+
+
 
     .button-whatsapp:hover {
         background-color: #6b3597;
