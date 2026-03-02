@@ -31,8 +31,11 @@
         --light-gray: #888;
     }
 
-
-
+.container-menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px; /* espaço lateral */
+}
 
     header {
         background: rgba(0, 0, 0, 0.8);
