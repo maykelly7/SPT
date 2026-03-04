@@ -76,6 +76,125 @@ nav {
     color: rgb(255, 20, 255);
 }
 
+/* Hamburguer */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  right: -100%;
+  width: 200px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  transition: 0.4s;
+  padding: 30px;
+}
+
+.mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Quando ativo */
+.mobile-menu.active {
+  right: 0;
+}
+
+  .mobile-menu a{
+    display: none;
+  }
+
+/* =========================
+    MENU MOBILE (HAMBURGUER)
+    ========================= */
+
+/* Esconde o menu padrão em telas pequenas */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none !important; /* Garante que suma */
+  }
+
+  .hamburger {
+    display: flex !important; /* Garante que apareça */
+    z-index: 1001; /* Fica acima do menu */
+  }
+
+  /* Estilo do Menu Lateral */
+  .mobile-menu {
+    position: fixed;
+    top: 0; /* Começa do topo da tela */
+    right: -100%; /* Escondido à direita */
+    width: 80%; /* Ocupa 80% da tela */
+    max-width: 300px;
+    height: 100vh;
+    background: rgba(15, 15, 15, 0.98);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    transition: right 0.4s ease-in-out;
+    z-index: 1000;
+    padding: 80px 30px; /* Espaço para não colar no topo */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  /* Quando a classe 'active' é adicionada, o menu entra */
+  .mobile-menu.active {
+    right: 0;
+  }
+
+  /* Links dentro do menu mobile */
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-menu a {
+     display: flex !important;  display: flex !important; 
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--green); /* Cor de destaque */
+  }
+
+  /* Animação do ícone Hamburguer (vira X) */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+}
 
 
 
