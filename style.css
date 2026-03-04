@@ -276,6 +276,8 @@ nav {
     z-index: 0;
 }
 
+
+
 @keyframes rise {
     to {
         transform: translateY(-120vh) scale(1.2);
@@ -316,6 +318,11 @@ nav {
     margin-bottom: 20px;
 }
 
+.hero-cta{
+    display: flex;
+    gap: 15px;
+}
+
 .gradient-text {
     background: linear-gradient(90deg, var(--green), var(--yellow));
     background-clip: text;
@@ -325,6 +332,29 @@ nav {
 
 .cursor {
     animation: piscar 0.8s infinite;
+}
+
+@media (max-width: 768px)  {
+
+    .hero img{
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 25px;
+        width: 100%;
+    }
+
+    .hero-cta{
+        display: flex;     
+        flex-direction: row; 
+        font-size: 15px;
+        justify-content: center;
+        gap: 10px;
+        height: 50px;
+    }
+
+
 }
 
 @keyframes piscar {
@@ -593,6 +623,14 @@ section {
     margin: 40px auto 0 auto;
 }
 
+@media  (max-width: 768px) {
+    .button-whatsapp{
+       width: 45%;
+       height: 50px;
+       font-size: 10px;
+    }
+}
+
 .button-whatsapp img {
     width: 14px;
     height: auto;
@@ -640,6 +678,12 @@ section {
     font-size: 30px;
     font-weight: 700;
     line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+    .cases-header .section-title{
+        font-size: 20px;
+    }
 }
 
 .cases-grid {
