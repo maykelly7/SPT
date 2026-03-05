@@ -199,13 +199,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobileLinks = document.querySelectorAll(".mobile-menu a");
 
     if (hamburger && mobileMenu) {
-        // Abre/fecha o menu ao clicar no ícone
         hamburger.addEventListener("click", function () {
             mobileMenu.classList.toggle("active");
             hamburger.classList.toggle("active"); // Adiciona animação do X
         });
 
-        // Fecha o menu ao clicar em qualquer link
         mobileLinks.forEach(link => {
             link.addEventListener("click", function () {
                 mobileMenu.classList.remove("active");
