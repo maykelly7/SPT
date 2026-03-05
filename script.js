@@ -192,23 +192,22 @@ if (container) {
 // =============================
 // MENU HAMBURGUER
 // =============================
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuLinks = mobileMenu.querySelectorAll('a');
 
-    const hamburger = document.getElementById("hamburger");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const mobileLinks = document.querySelectorAll(".mobile-menu a");
+    // Função para abrir/fechar o menu
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
 
-    if (hamburger && mobileMenu) {
-        hamburger.addEventListener("click", function () {
-            mobileMenu.classList.toggle("active");
-            hamburger.classList.toggle("active"); // Adiciona animação do X
+    // Fechar o menu ao clicar em um link
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
         });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener("click", function () {
-                mobileMenu.classList.remove("active");
-                hamburger.classList.remove("active");
-            });
-        });
-    }
+    });
 });

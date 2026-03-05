@@ -78,19 +78,88 @@ nav {
 
 
 
-
 /* =========================
-    MENU MOBILE (HAMBURGUER)
+    MENU SANDUÍCHE (MOBILE)
     ========================= */
 
 /* Esconde o menu padrão em telas pequenas */
 @media (max-width: 768px) {
     .nav-links {
-        display: none !important;
-        /* Garante que suma */
+        display: none; /* Esconde o menu horizontal */
     }
 
-   
+    /* Estiliza o botão Hamburguer */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 1000; /* Garante que fique acima de tudo */
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animação do X quando o menu está aberto */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* Estiliza o Menu Mobile (Fundo escuro) */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Começa escondido na esquerda */
+        width: 50%;
+        height: 50%;
+        background-color: rgba(15, 15, 15, 0.87);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.4s ease-in-out;
+        z-index: 10;
+        border-radius: 10px;
+    }
+
+    .mobile-menu nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .mobile-menu nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+    .mobile-menu nav a:hover {
+        color: var(--green);
+    }
+
+    /* Classe para mostrar o menu */
+    .mobile-menu.active {
+        left: 0;
+    }
 }
 
 
